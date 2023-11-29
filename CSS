@@ -1,0 +1,89 @@
+ :root {
+            --w: calc(70vw / 6); /* Calcule el ancho de la tarjeta */
+
+            --h: calc(70vh / 4); /* Calcular la altura de la tarjeta */
+
+        }
+
+        * {
+            transition: all 0.5s; /* Transiciones suaves para todos los elementos */
+        }
+
+        body {
+  padding: 0; /* Eliminar el relleno predeterminado */
+  margin: 0; /* Eliminar el margen predeterminado */
+  -webkit-perspective: 1000; /* Habilitar la perspectiva 3D para voltear cartas */
+  background: powderblue; /* Establecer el color de fondo */
+  min-height: 100vh; /* Asegúrese de que la página llene la altura de la ventana gráfica */
+  display: flex; /* Organizar elementos en un diseño flexible */
+  flex-direction: column;  /* Apilar elementos verticalmente */
+  justify-content: center; /* Alinear los elementos verticalmente en el centro */
+  align-items: center;  /* Alinear elementos horizontalmente en el centro */
+  text-align: center; /* Texto central */
+  font-family: book; /* Establecer familia de fuentes */
+}
+
+        div {
+            display: inline-block; /* Mostrar elementos como bloques en línea para un espaciado adecuado */
+        }
+
+       .area-tarjeta,
+.tarjeta,
+.cara {
+  cursor: pointer; /* Hacer que se pueda hacer clic en los elementos */
+  width: var(--w); /* Utilice la variable de ancho calculada */
+  min-width: 100px; /* Establecer ancho mínimo */
+  height: var(--h); /* Utilice la variable de altura calculada */
+}
+
+
+       .tarjeta {
+  position: relative; /* Coloque la tarjeta en relación con su contenedor */
+  transform-style: preserve-3d;/* Conservar la transformación 3D para voltear cartas */
+  animation: iniciar 5s; /* Aplicar la animación 'iniciar' para el lanzamiento inicial de la carta */
+}
+
+
+      .cara {
+  position: absolute; /* Coloque las caras de la tarjeta absolutamente dentro del elemento de la tarjeta */
+  backface-visibility: hidden; /* Ocultar el reverso de la tarjeta */
+  box-shadow: inset 0 0 0 8px white; /* Añade un brillo sutil alrededor de las caras de las cartas */
+  font-size: 500%; /* Establecer el tamaño de fuente para iconos grandes */
+  display: flex; /* Organizar el contenido de los iconos en un diseño flexible */
+  justify-content: center; /* Alinear el contenido del icono horizontalmente en el centro */
+  align-items: center; /* Alinear el contenido del icono verticalmente en el centro*/
+}
+
+        
+
+       .trasera {
+  background-color: lightcyan; /* Establecer el color de fondo para la cara posterior */
+  transform: rotateY(180deg); /* Girar inicialmente la cara posterior 180 grados */
+}
+
+.superior {
+  background: linear-gradient(purple, darkorange); /* Establecer el degradado de fondo para la cara frontal */
+}
+
+
+       .nuevo-juego {
+  cursor: pointer; /* Hacer que se pueda hacer clic en el botón */
+  background: linear-gradient(purple, darkorange); /* Establecer el degradado de fondo para el botón */
+  padding: 20px; /* Agregar relleno para el texto del botón */
+  border-radius: 50px; /* Esquinas de botones redondas */
+  border: white 5px solid; /* Añade un borde blanco */
+  font-size: 130%; /* Aumentar el tamaño de la fuente para el texto del botón */
+}
+
+@keyframes iniciar {
+
+  20%,
+  90% {
+    transform: rotateY(180deg); /* Voltea la carta 180 grados al 20% y al 90% de la duración de la animación */
+  }
+
+  0%,
+  100% {
+    transform: rotateY(0deg); /* Restablece la rotación de la tarjeta a 0 grados al principio y al final de la animación */
+  }
+}
