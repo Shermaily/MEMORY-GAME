@@ -39,10 +39,10 @@ function generarTablero() {
         </div>
       </div>
     `)
-    if (i % 2 == 1) {// Si es un número impar, se elimina el primer elemento del arreglo 'iconos' usando splice.
+    if (i % 2 == 1) {// Si es un número impar, se elimina el primer elemento del arreglo 'iconos'.
                     iconos.splice(0, 1)
     }
-  }// Se utiliza la función sort para mezclar aleatoriamente los elementos del arreglo 'tarjetas'.
+  }
   tarjetas.sort(() => Math.random() - 0.5)
   tablero.innerHTML = tarjetas.join(" ")// Se asigna el contenido del arreglo 'tarjetas' al elemento con el id 'tablero', convirtiendo el arreglo en una cadena de texto con join.
 }
